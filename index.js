@@ -8,9 +8,10 @@ button.addEventListener("click", () => {
       "&aqi=no"
   )
     .then((response) => {
-      response.json();
-      if (response.status === 400) {
+      if (response.status == 400) {
         throw new Error(false);
+      } else {
+        return response.json();
       }
     })
     .then((response) => showLocation(response))
